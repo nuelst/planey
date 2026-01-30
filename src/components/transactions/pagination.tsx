@@ -16,11 +16,8 @@ export function Pagination({
 }: PaginationProps) {
 	const { currentPage, setPage } = filters;
 
-	if (totalPages <= 1) {
-		return null;
-	}
-
 	const pages = generatePageNumbers(currentPage, totalPages);
+	const showPageButtons = totalPages > 1;
 
 	return (
 		<div className="flex items-center justify-between">
@@ -28,46 +25,48 @@ export function Pagination({
 				{totalItems} {totalItems === 1 ? "item" : "itens"}
 			</p>
 
-			<div className="flex items-center gap-1">
-				<Button
-					variant="ghost"
-					size="icon"
-					onClick={() => setPage(currentPage - 1)}
-					disabled={currentPage <= 1}
-					aria-label="Página anterior"
-				>
-					<ChevronLeftIcon className="h-4 w-4" />
-				</Button>
-
-				{pages.map((page, index) => (
-					<button
-						key={page === "..." ? `ellipsis-${index}` : `page-${page}`}
-						type="button"
-						disabled={page === "..."}
-						onClick={() => typeof page === "number" && setPage(page)}
-						className={cn(
-							"h-10 min-w-10 px-3 text-sm font-medium rounded-md transition-colors",
-							page === currentPage
-								? "bg-brand text-brand-text"
-								: page === "..."
-									? "text-text-muted cursor-default"
-									: "text-text-secondary hover:text-text-primary hover:bg-surface-hover",
-						)}
+			{showPageButtons && (
+				<div className="flex items-center gap-1">
+					<Button
+						variant="ghost"
+						size="icon"
+						onClick={() => setPage(currentPage - 1)}
+						disabled={currentPage <= 1}
+						aria-label="Página anterior"
 					>
-						{page}
-					</button>
-				))}
+						<ChevronLeftIcon className="h-4 w-4" />
+					</Button>
 
-				<Button
-					variant="ghost"
-					size="icon"
-					onClick={() => setPage(currentPage + 1)}
-					disabled={currentPage >= totalPages}
-					aria-label="Próxima página"
-				>
-					<ChevronRightIcon className="h-4 w-4" />
-				</Button>
-			</div>
+					{pages.map((page, index) => (
+						<button
+							key={page === "..." ? `ellipsis-${index}` : `page-${page}`}
+							type="button"
+							disabled={page === "..."}
+							onClick={() => typeof page === "number" && setPage(page)}
+							className={cn(
+								"h-10 min-w-10 px-3 text-sm font-medium rounded-md transition-colors",
+								page === currentPage
+									? "bg-brand text-brand-text"
+									: page === "..."
+										? "text-text-muted cursor-default"
+										: "text-text-secondary hover:text-text-primary hover:bg-surface-hover",
+							)}
+						>
+							{page}
+						</button>
+					))}
+
+					<Button
+						variant="ghost"
+						size="icon"
+						onClick={() => setPage(currentPage + 1)}
+						disabled={currentPage >= totalPages}
+						aria-label="Próxima página"
+					>
+						<ChevronRightIcon className="h-4 w-4" />
+					</Button>
+				</div>
+			)}
 		</div>
 	);
 }
