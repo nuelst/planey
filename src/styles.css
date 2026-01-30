@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* ============================================
-   🎨 PLANEY DESIGN SYSTEM
-   ============================================ */
-
 @theme {
 	/* Colors - Background */
 	--color-background: #121212;
@@ -60,10 +56,6 @@
 	--font-size-2xl: 24px;
 	--font-size-3xl: 32px;
 }
-
-/* ============================================
-   Base Styles
-   ============================================ */
 
 body {
 	@apply m-0 bg-background text-text-primary;
