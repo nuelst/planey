@@ -24,15 +24,17 @@ export function TransactionItem({
 	const isIncome = type === "income";
 
 	return (
-		<button
-			type="button"
+		<div
 			className={cn(
-				"flex items-center justify-between w-full p-4 rounded-lg bg-surface border border-transparent transition-colors cursor-pointer text-left",
+				"flex items-center justify-between w-full p-4 rounded-lg bg-surface border border-transparent transition-colors",
 				"hover:border-outcome/50 hover:bg-surface-hover",
 			)}
-			onClick={() => onClick?.(id)}
 		>
-			<div className="flex items-center gap-3">
+			<button
+				type="button"
+				className="flex items-center gap-3 flex-1 cursor-pointer"
+				onClick={() => onClick?.(id)}
+			>
 				{isIncome ? (
 					<ArrowDownIcon className="h-5 w-5 text-income" />
 				) : (
@@ -46,32 +48,22 @@ export function TransactionItem({
 				>
 					{formattedAmount}
 				</span>
-			</div>
+			</button>
 
 			{isDeleted ? (
-				<Button
-					variant="outline"
-					size="sm"
-					onClick={(e) => {
-						e.stopPropagation();
-						onRestore?.(id);
-					}}
-				>
+				<Button variant="outline" size="sm" onClick={() => onRestore?.(id)}>
 					Restaurar
 				</Button>
 			) : (
 				<Button
 					variant="destructive"
 					size="icon"
-					onClick={(e) => {
-						e.stopPropagation();
-						onDelete?.(id);
-					}}
+					onClick={() => onDelete?.(id)}
 					aria-label="Excluir transação"
 				>
 					<TrashIcon className="h-4 w-4" />
 				</Button>
 			)}
-		</button>
+		</div>
 	);
 }
