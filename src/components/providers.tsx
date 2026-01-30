@@ -2,6 +2,7 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { Toaster } from "sonner";
 
 import { queryClient } from "../lib/query-client";
 
@@ -13,6 +14,16 @@ export function Providers({ children }: ProvidersProps) {
 	return (
 		<QueryClientProvider client={queryClient}>
 			{children}
+			<Toaster
+				position="top-right"
+				toastOptions={{
+					style: {
+						background: "#1c1c1c",
+						border: "1px solid #2e2928",
+						color: "#fafafa",
+					},
+				}}
+			/>
 			<ReactQueryDevtools initialIsOpen={false} />
 			<TanStackDevtools
 				config={{
