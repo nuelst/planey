@@ -2,17 +2,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { ReactNode } from "react";
 
 const toggleGroupVariants = cva(
-	"inline-flex items-center rounded-md bg-surface border border-border p-1 gap-1",
+	"inline-flex items-center rounded-full bg-toggle-bg px-[7px] py-2 gap-[10px]",
 );
 
 const toggleItemVariants = cva(
-	"inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand",
+	"inline-flex items-center justify-center h-6 px-3 py-[2px] text-[14px] rounded-[19px] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand",
 	{
 		variants: {
 			active: {
-				true: "bg-surface-active text-text-primary",
-				false:
-					"bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-hover",
+				true: "bg-toggle-active text-white font-medium",
+				false: "bg-transparent text-white font-normal hover:bg-surface-hover",
 			},
 		},
 		defaultVariants: {
