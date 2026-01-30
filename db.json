@@ -1,0 +1,45 @@
+{
+  "transactions": [
+    {
+      "id": "tx_001",
+      "type": "income",
+      "amount": 125000,
+      "deletedAt": null,
+      "createdAt": "2026-01-28T12:00:00.000Z",
+      "updatedAt": "2026-01-28T12:00:00.000Z"
+    },
+    {
+      "id": "tx_002",
+      "type": "outcome",
+      "amount": 32000,
+      "deletedAt": null,
+      "createdAt": "2026-01-29T10:00:00.000Z",
+      "updatedAt": "2026-01-29T10:00:00.000Z"
+    },
+    {
+      "id": "tx_003",
+      "type": "income",
+      "amount": 250000,
+      "deletedAt": null,
+      "createdAt": "2026-01-29T14:30:00.000Z",
+      "updatedAt": "2026-01-29T14:30:00.000Z"
+    },
+    {
+      "id": "tx_004",
+      "type": "outcome",
+      "amount": 15500,
+      "deletedAt": null,
+      "createdAt": "2026-01-29T16:00:00.000Z",
+      "updatedAt": "2026-01-29T16:00:00.000Z"
+    },
+    {
+      "id": "tx_005",
+      "type": "income",
+      "amount": 89000,
+      "deletedAt": "2026-01-30T08:00:00.000Z",
+      "createdAt": "2026-01-27T09:00:00.000Z",
+      "updatedAt": "2026-01-30T08:00:00.000Z"
+    }
+  ]
+}
+
