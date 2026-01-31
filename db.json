@@ -207,6 +207,46 @@
       "deletedAt": null,
       "createdAt": "2026-01-31T01:50:58.489Z",
       "updatedAt": "2026-01-31T01:50:58.489Z"
+    },
+    {
+      "id": "tx_1769824543822",
+      "type": "income",
+      "amount": 20345465,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:55:43.822Z",
+      "updatedAt": "2026-01-31T01:55:43.822Z"
+    },
+    {
+      "id": "tx_1769824548590",
+      "type": "income",
+      "amount": 234567,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:55:48.590Z",
+      "updatedAt": "2026-01-31T01:55:48.590Z"
+    },
+    {
+      "id": "tx_1769824552434",
+      "type": "income",
+      "amount": 2345678,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:55:52.434Z",
+      "updatedAt": "2026-01-31T01:55:52.434Z"
+    },
+    {
+      "id": "tx_1769824557607",
+      "type": "income",
+      "amount": 23456789,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:55:57.607Z",
+      "updatedAt": "2026-01-31T01:55:57.607Z"
+    },
+    {
+      "id": "tx_1769824566390",
+      "type": "income",
+      "amount": 2134567890,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:56:06.390Z",
+      "updatedAt": "2026-01-31T01:56:06.390Z"
     }
   ]
 }
