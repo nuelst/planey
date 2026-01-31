@@ -5,14 +5,13 @@ import {
 } from "@radix-ui/react-icons";
 import * as Select from "@radix-ui/react-select";
 import { cn } from "../../lib/cn";
+import { PAGE_SIZE_OPTIONS } from "../../lib/constants";
 import type { TransactionFiltersViewModel } from "../../view-models/transactions";
 
 interface PaginationProps {
 	filters: TransactionFiltersViewModel;
 	totalPages: number;
 }
-
-const PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
 
 export function Pagination({ filters, totalPages }: PaginationProps) {
 	const { currentPage, perPage, setPage, setPerPage } = filters;

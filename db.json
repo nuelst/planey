@@ -124,9 +124,9 @@
       "id": "tx_1769817034069",
       "type": "outcome",
       "amount": 22324454,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T02:12:31.317Z",
       "createdAt": "2026-01-30T23:50:34.069Z",
-      "updatedAt": "2026-01-31T00:58:59.694Z"
+      "updatedAt": "2026-01-31T02:12:31.317Z"
     },
     {
       "id": "tx_1769818754929",
@@ -140,17 +140,17 @@
       "id": "tx_1769819834520",
       "type": "outcome",
       "amount": 231211,
-      "deletedAt": "2026-01-31T01:46:21.870Z",
+      "deletedAt": null,
       "createdAt": "2026-01-31T00:37:14.520Z",
-      "updatedAt": "2026-01-31T01:46:21.870Z"
+      "updatedAt": "2026-01-31T02:12:55.555Z"
     },
     {
       "id": "tx_1769822863437",
       "type": "outcome",
       "amount": 5000,
-      "deletedAt": "2026-01-31T01:46:50.252Z",
+      "deletedAt": null,
       "createdAt": "2026-01-31T01:27:43.436Z",
-      "updatedAt": "2026-01-31T01:46:50.252Z"
+      "updatedAt": "2026-01-31T02:12:53.978Z"
     },
     {
       "id": "tx_1769822864001",
@@ -204,17 +204,17 @@
       "id": "tx_1769824258490",
       "type": "outcome",
       "amount": 5000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T02:13:06.391Z",
       "createdAt": "2026-01-31T01:50:58.489Z",
-      "updatedAt": "2026-01-31T01:50:58.489Z"
+      "updatedAt": "2026-01-31T02:13:06.391Z"
     },
     {
       "id": "tx_1769824543822",
       "type": "income",
       "amount": 20345465,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T02:12:25.182Z",
       "createdAt": "2026-01-31T01:55:43.822Z",
-      "updatedAt": "2026-01-31T01:55:43.822Z"
+      "updatedAt": "2026-01-31T02:12:25.182Z"
     },
     {
       "id": "tx_1769824548590",
@@ -228,9 +228,9 @@
       "id": "tx_1769824552434",
       "type": "income",
       "amount": 2345678,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T02:12:23.632Z",
       "createdAt": "2026-01-31T01:55:52.434Z",
-      "updatedAt": "2026-01-31T01:55:52.434Z"
+      "updatedAt": "2026-01-31T02:12:23.632Z"
     },
     {
       "id": "tx_1769824557607",
@@ -238,7 +238,7 @@
       "amount": 23456789,
       "deletedAt": null,
       "createdAt": "2026-01-31T01:55:57.607Z",
-      "updatedAt": "2026-01-31T01:55:57.607Z"
+      "updatedAt": "2026-01-31T02:14:21.966Z"
     },
     {
       "id": "tx_1769824566390",
@@ -246,7 +246,7 @@
       "amount": 2134567890,
       "deletedAt": null,
       "createdAt": "2026-01-31T01:56:06.390Z",
-      "updatedAt": "2026-01-31T01:56:06.390Z"
+      "updatedAt": "2026-01-31T02:13:25.684Z"
     }
   ]
 }

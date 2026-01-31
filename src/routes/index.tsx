@@ -9,6 +9,8 @@ import {
 	TransactionModal,
 } from "../components/transactions";
 import { useRestoreTransaction } from "../hooks/transactions";
+import { TOAST_MESSAGES } from "../lib/constants";
+import { searchParamsSchema } from "../lib/search-params";
 import {
 	useTransactionFiltersViewModel,
 	useTransactionFormViewModel,
@@ -16,7 +18,10 @@ import {
 	useTransactionsViewModel,
 } from "../view-models/transactions";
 
-export const Route = createFileRoute("/")({ component: App });
+export const Route = createFileRoute("/")({
+	validateSearch: searchParamsSchema,
+	component: App,
+});
 
 function App() {
 	const filters = useTransactionFiltersViewModel();
@@ -28,24 +33,18 @@ function App() {
 		transactionId: modal.editingTransactionId,
 		onSuccess: () => {
 			modal.closeModal();
-			if (modal.isEditModalOpen) {
-				toast("🎉 Valor de atualizado", {
-					description: "Já pode visualizar na lista.",
-				});
-			} else {
-				toast("🎉 Valor de entrada adicionado", {
-					description: "Já pode visualizar na lista.",
-				});
-			}
+			const message = modal.isEditModalOpen
+				? TOAST_MESSAGES.transaction.updated
+				: TOAST_MESSAGES.transaction.created;
+			toast(message.title, { description: message.description });
 		},
 	});
 
 	const handleRestore = (id: string) => {
 		restoreMutation.mutate(id, {
 			onSuccess: () => {
-				toast("🎉 Valor restaurado", {
-					description: "Já pode visualizar na lista.",
-				});
+				const { title, description } = TOAST_MESSAGES.transaction.restored;
+				toast(title, { description });
 			},
 		});
 	};

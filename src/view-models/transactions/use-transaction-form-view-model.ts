@@ -6,9 +6,9 @@ import {
 	useTransaction,
 	useUpdateTransaction,
 } from "../../hooks/transactions";
+import { DEFAULT_TRANSACTION_FORM } from "../../lib/constants";
 import { fromCents, toCents } from "../../lib/formatters";
 import { transactionSchema } from "../../lib/validations";
-import type { TransactionType } from "../../types/transaction";
 
 interface UseTransactionFormViewModelProps {
 	transactionId?: string;
@@ -30,10 +30,7 @@ export function useTransactionFormViewModel({
 
 	const form = useForm({
 		resolver: zodResolver(transactionSchema),
-		defaultValues: {
-			type: "income" as TransactionType,
-			amount: 0,
-		},
+		defaultValues: DEFAULT_TRANSACTION_FORM,
 	});
 
 	useEffect(() => {
@@ -43,10 +40,7 @@ export function useTransactionFormViewModel({
 				amount: fromCents(transaction.amount),
 			});
 		} else if (!isEditing) {
-			form.reset({
-				type: "income",
-				amount: 0,
-			});
+			form.reset(DEFAULT_TRANSACTION_FORM);
 		}
 	}, [transaction, isEditing, form]);
 
@@ -73,10 +67,7 @@ export function useTransactionFormViewModel({
 	});
 
 	const resetForm = () => {
-		form.reset({
-			type: "income",
-			amount: 0,
-		});
+		form.reset(DEFAULT_TRANSACTION_FORM);
 	};
 
 	return {

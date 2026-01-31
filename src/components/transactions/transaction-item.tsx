@@ -32,13 +32,17 @@ export function TransactionItem({
 		>
 			<button
 				type="button"
-				className="flex items-center gap-3 flex-1 cursor-pointer"
-				onClick={() => onClick?.(id)}
+				className={cn(
+					"flex items-center gap-3 flex-1",
+					!isDeleted && "cursor-pointer",
+				)}
+				onClick={() => !isDeleted && onClick?.(id)}
+				disabled={isDeleted}
 			>
 				{isIncome ? (
-					<UploadIcon className="h-5 w-5 text-income" />
+					<DownloadIcon className="h-5 w-5 text-income" />
 				) : (
-					<DownloadIcon className="h-5 w-5 text-outcome" />
+					<UploadIcon className="h-5 w-5 text-outcome" />
 				)}
 				<span
 					className={cn(

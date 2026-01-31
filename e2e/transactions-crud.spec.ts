@@ -62,7 +62,7 @@ test.describe("Transacoes - CRUD", () => {
 	});
 
 	test("deve restaurar uma transacao excluida", async ({ page }) => {
-		await page.goto("/?deleted=true");
+		await page.goto("/?type=deleted");
 		await page.waitForLoadState("networkidle");
 
 		const restoreButton = page.locator("button:has-text('Restaurar')").first();
