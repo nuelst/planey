@@ -28,9 +28,9 @@
       "id": "tx_004",
       "type": "outcome",
       "amount": 15500,
-      "deletedAt": "2026-01-30T23:47:49.340Z",
+      "deletedAt": null,
       "createdAt": "2026-01-29T16:00:00.000Z",
-      "updatedAt": "2026-01-30T23:47:49.340Z"
+      "updatedAt": "2026-01-31T01:04:18.435Z"
     },
     {
       "id": "tx_005",
@@ -116,17 +116,17 @@
       "id": "tx_015",
       "type": "outcome",
       "amount": 63000,
-      "deletedAt": "2026-01-30T23:32:19.993Z",
+      "deletedAt": "2026-01-31T01:00:04.659Z",
       "createdAt": "2026-01-17T12:30:00.000Z",
-      "updatedAt": "2026-01-30T23:32:19.993Z"
+      "updatedAt": "2026-01-31T01:00:04.660Z"
     },
     {
       "id": "tx_1769817034069",
       "type": "outcome",
       "amount": 22324454,
-      "deletedAt": "2026-01-31T00:04:09.246Z",
+      "deletedAt": null,
       "createdAt": "2026-01-30T23:50:34.069Z",
-      "updatedAt": "2026-01-31T00:04:09.246Z"
+      "updatedAt": "2026-01-31T00:58:59.694Z"
     },
     {
       "id": "tx_1769818754929",
@@ -140,9 +140,9 @@
       "id": "tx_1769819834520",
       "type": "outcome",
       "amount": 231211,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T00:51:35.964Z",
       "createdAt": "2026-01-31T00:37:14.520Z",
-      "updatedAt": "2026-01-31T00:37:14.520Z"
+      "updatedAt": "2026-01-31T00:51:35.964Z"
     }
   ]
 }

@@ -68,7 +68,6 @@ function App() {
 						<Pagination
 							filters={filters}
 							totalPages={transactions.pagination.totalPages}
-							totalItems={transactions.pagination.totalItems}
 						/>
 					)}
 				</div>

@@ -37,10 +37,16 @@ export function useTransactionFormViewModel({
 	});
 
 	useEffect(() => {
-		if (transaction && isEditing) {
+		if (isEditing && transaction) {
 			form.reset({
 				type: transaction.type,
 				amount: fromCents(transaction.amount),
+			});
+		} else if (!isEditing) {
+			// Modo criação: reseta para valores padrão
+			form.reset({
+				type: "income",
+				amount: 0,
 			});
 		}
 	}, [transaction, isEditing, form]);

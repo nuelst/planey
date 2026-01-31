@@ -1,4 +1,4 @@
-import { ArrowDownIcon, ArrowUpIcon, TrashIcon } from "@radix-ui/react-icons";
+import { DownloadIcon, TrashIcon, UploadIcon } from "@radix-ui/react-icons";
 import { cn } from "../../lib/cn";
 import { Button } from "../ui/button";
 
@@ -36,9 +36,9 @@ export function TransactionItem({
 				onClick={() => onClick?.(id)}
 			>
 				{isIncome ? (
-					<ArrowDownIcon className="h-5 w-5 text-income" />
+					<UploadIcon className="h-5 w-5 text-income" />
 				) : (
-					<ArrowUpIcon className="h-5 w-5 text-outcome" />
+					<DownloadIcon className="h-5 w-5 text-outcome" />
 				)}
 				<span
 					className={cn(

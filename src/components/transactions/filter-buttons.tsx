@@ -1,8 +1,8 @@
 import {
-	ArrowDownIcon,
-	ArrowUpIcon,
 	DashboardIcon,
+	DownloadIcon,
 	TrashIcon,
+	UploadIcon,
 } from "@radix-ui/react-icons";
 import { cn } from "../../lib/cn";
 import type { TransactionFiltersViewModel } from "../../view-models/transactions";
@@ -21,13 +21,13 @@ export function FilterButtons({ filters }: FilterButtonsProps) {
 		},
 		{
 			label: "Entradas",
-			icon: ArrowDownIcon,
+			icon: UploadIcon,
 			isActive: filters.isShowingIncome,
 			onClick: filters.showIncome,
 		},
 		{
 			label: "Saídas",
-			icon: ArrowUpIcon,
+			icon: DownloadIcon,
 			isActive: filters.isShowingOutcome,
 			onClick: filters.showOutcome,
 		},

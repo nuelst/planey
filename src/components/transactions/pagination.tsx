@@ -10,20 +10,14 @@ import type { TransactionFiltersViewModel } from "../../view-models/transactions
 interface PaginationProps {
 	filters: TransactionFiltersViewModel;
 	totalPages: number;
-	totalItems: number;
 }
 
 const PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
 
-export function Pagination({
-	filters,
-	totalPages,
-	totalItems,
-}: PaginationProps) {
+export function Pagination({ filters, totalPages }: PaginationProps) {
 	const { currentPage, perPage, setPage, setPerPage } = filters;
 
 	const pages = generatePageNumbers(currentPage, totalPages);
-	const showPageButtons = totalPages > 1;
 
 	return (
 		<div className="flex items-center justify-between mt-[6px]">
@@ -61,48 +55,46 @@ export function Pagination({
 			</Select.Root>
 
 			{/* Paginação - Direita */}
-			{showPageButtons && (
-				<div className="flex items-center gap-[10px]">
-					<button
-						type="button"
-						onClick={() => setPage(currentPage - 1)}
-						disabled={currentPage <= 1}
-						aria-label="Página anterior"
-						className="flex items-center justify-center h-8 w-8 rounded-[8px] border border-dialog-border bg-dialog-bg text-text-primary hover:bg-surface-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-					>
-						<ChevronLeftIcon className="h-4 w-4" />
-					</button>
+			<div className="flex items-center gap-[10px]">
+				<button
+					type="button"
+					onClick={() => setPage(currentPage - 1)}
+					disabled={currentPage <= 1}
+					aria-label="Página anterior"
+					className="flex items-center justify-center h-8 w-8 rounded-[8px] border border-dialog-border bg-dialog-bg text-text-primary hover:bg-surface-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+				>
+					<ChevronLeftIcon className="h-4 w-4" />
+				</button>
 
-					{pages.map((page, index) => (
-						<button
-							key={page === "..." ? `ellipsis-${index}` : `page-${page}`}
-							type="button"
-							disabled={page === "..."}
-							onClick={() => typeof page === "number" && setPage(page)}
-							className={cn(
-								"flex items-center justify-center h-8 min-w-8 px-2 text-sm font-medium rounded-[8px] border transition-colors",
-								page === currentPage
-									? "bg-active-bg text-active-text border-active-border"
-									: page === "..."
-										? "text-text-muted cursor-default border-transparent"
-										: "bg-dialog-bg text-text-primary border-dialog-border hover:bg-surface-hover",
-							)}
-						>
-							{page}
-						</button>
-					))}
-
+				{pages.map((page, index) => (
 					<button
+						key={page === "..." ? `ellipsis-${index}` : `page-${page}`}
 						type="button"
-						onClick={() => setPage(currentPage + 1)}
-						disabled={currentPage >= totalPages}
-						aria-label="Próxima página"
-						className="flex items-center justify-center h-8 w-8 rounded-[8px] border border-dialog-border bg-dialog-bg text-text-primary hover:bg-surface-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+						disabled={page === "..."}
+						onClick={() => typeof page === "number" && setPage(page)}
+						className={cn(
+							"flex items-center justify-center h-8 min-w-8 px-2 text-sm font-medium rounded-[8px] border transition-colors",
+							page === currentPage
+								? "bg-active-bg text-active-text border-active-border"
+								: page === "..."
+									? "text-text-muted cursor-default border-transparent"
+									: "bg-dialog-bg text-text-primary border-dialog-border hover:bg-surface-hover",
+						)}
 					>
-						<ChevronRightIcon className="h-4 w-4" />
+						{page}
 					</button>
-				</div>
-			)}
+				))}
+
+				<button
+					type="button"
+					onClick={() => setPage(currentPage + 1)}
+					disabled={currentPage >= totalPages}
+					aria-label="Próxima página"
+					className="flex items-center justify-center h-8 w-8 rounded-[8px] border border-dialog-border bg-dialog-bg text-text-primary hover:bg-surface-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+				>
+					<ChevronRightIcon className="h-4 w-4" />
+				</button>
+			</div>
 		</div>
 	);
 }

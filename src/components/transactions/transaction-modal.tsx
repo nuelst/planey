@@ -18,15 +18,32 @@ export function TransactionModal({
 	onClose,
 	formVm,
 }: TransactionModalProps) {
-	const { form, handleSubmit, isSubmitting, errors } = formVm;
+	const { form, handleSubmit, isEditing, isSubmitting, errors } = formVm;
+
+	const isDirty = form.formState.isDirty;
 
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		await handleSubmit(e);
 	};
 
+	const handleClose = () => {
+		form.reset();
+		onClose();
+	};
+
+	const getTitle = () => {
+		if (isEditing) return "Valor";
+		return "Quanto você quer adicionar?";
+	};
+
+	const getButtonText = () => {
+		if (isEditing) return "Salvar alterações";
+		return "Adicionar";
+	};
+
 	return (
-		<Dialog.Root open={isOpen} onOpenChange={(open) => !open && onClose()}>
+		<Dialog.Root open={isOpen} onOpenChange={(open) => !open && handleClose()}>
 			<Dialog.Portal>
 				<Dialog.Overlay className="fixed inset-0 bg-black/60 backdrop-blur-[12px] animate-in fade-in" />
 				<Dialog.Content
@@ -53,9 +70,7 @@ export function TransactionModal({
 						{/* Campo de valor */}
 						<div className="flex flex-col gap-3">
 							<Dialog.Title className="text-[14px] font-normal text-text-secondary">
-								{form.watch("amount") > 0
-									? "Valor"
-									: "Quanto você quer adicionar?"}
+								{getTitle()}
 							</Dialog.Title>
 							<Controller
 								name="amount"
@@ -101,8 +116,13 @@ export function TransactionModal({
 							/>
 
 							{/* Botão de submit */}
-							<Button type="submit" variant="brand" isLoading={isSubmitting}>
-								{form.watch("amount") > 0 ? "Salvar alterações" : "Adicionar"}
+							<Button
+								type="submit"
+								variant="brand"
+								isLoading={isSubmitting}
+								disabled={isEditing && !isDirty}
+							>
+								{getButtonText()}
 							</Button>
 						</div>
 					</form>
