@@ -35,14 +35,20 @@ export function TransactionList({
 
 	if (vm.transactions.length === 0) {
 		return (
-			<div className="flex items-center justify-center p-8 rounded-lg bg-surface border border-border">
-				<p className="text-text-secondary">Nenhuma transação encontrada</p>
+			<div className="flex flex-col items-center justify-center gap-4 pt-[84px]">
+				<p className="text-[16px] font-normal text-text-primary text-center">
+					Nenhum lançamento cadastrado
+				</p>
+				<p className="text-[14px] font-normal text-text-secondary text-center max-w-[313px]">
+					Caso para adicionar clique em novo valor ou se quiser resgatar um
+					antigo clique em excluídos.
+				</p>
 			</div>
 		);
 	}
 
 	return (
-		<div className="flex flex-col gap-3">
+		<div className="flex flex-col rounded-[16px] border border-dialog-border bg-dialog-bg overflow-hidden">
 			{vm.transactions.map((transaction) => (
 				<TransactionItem
 					key={transaction.id}

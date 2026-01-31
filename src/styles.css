@@ -2,7 +2,7 @@
 
 @theme {
 	/* Colors - Background */
-	--color-background: #121212;
+	--color-background: #0a0a0a;
 	--color-surface: #1c1c1c;
 	--color-surface-hover: #252525;
 	--color-surface-active: #404040;
@@ -21,8 +21,8 @@
 	--color-brand-border: #1c2011;
 	--color-brand-text: #171717;
 
-	/* Colors - Active State */
-	--color-active-bg: #131506;
+	/* Colors - Active State (Button outline active) */
+	--color-active-bg: #13150e;
 	--color-active-border: #1c2011;
 	--color-active-text: #c0e952;
 

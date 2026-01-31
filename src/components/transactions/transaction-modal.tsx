@@ -18,7 +18,7 @@ export function TransactionModal({
 	onClose,
 	formVm,
 }: TransactionModalProps) {
-	const { form, handleSubmit, isEditing, isSubmitting, errors } = formVm;
+	const { form, handleSubmit, isSubmitting, errors } = formVm;
 
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -31,7 +31,7 @@ export function TransactionModal({
 				<Dialog.Overlay className="fixed inset-0 bg-black/60 backdrop-blur-[12px] animate-in fade-in" />
 				<Dialog.Content
 					className={cn(
-						"fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
+						"fixed left-1/2 top-10 -translate-x-1/2",
 						"w-full max-w-[552px] p-6 rounded-[16px]",
 						"bg-dialog-bg border border-dialog-border",
 						"animate-in fade-in zoom-in-95",
@@ -53,7 +53,9 @@ export function TransactionModal({
 						{/* Campo de valor */}
 						<div className="flex flex-col gap-3">
 							<Dialog.Title className="text-[14px] font-normal text-text-secondary">
-								{isEditing ? "Valor" : "Quanto você quer adicionar?"}
+								{form.watch("amount") > 0
+									? "Valor"
+									: "Quanto você quer adicionar?"}
 							</Dialog.Title>
 							<Controller
 								name="amount"
@@ -100,7 +102,7 @@ export function TransactionModal({
 
 							{/* Botão de submit */}
 							<Button type="submit" variant="brand" isLoading={isSubmitting}>
-								{isEditing ? "Salvar alterações" : "Adicionar"}
+								{form.watch("amount") > 0 ? "Salvar alterações" : "Adicionar"}
 							</Button>
 						</div>
 					</form>
