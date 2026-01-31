@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "../../lib/cn";
+import { formatCurrencyValue } from "../../lib/formatters";
 
 interface CurrencyInputProps {
 	value: number;
@@ -16,35 +17,23 @@ export function CurrencyInput({
 }: CurrencyInputProps) {
 	const [displayValue, setDisplayValue] = useState("");
 
-	// Formata o valor inicial
 	useEffect(() => {
-		if (value === 0) {
-			setDisplayValue("0.00");
-		} else {
-			setDisplayValue(formatCurrency(value));
-		}
+		setDisplayValue(formatCurrencyValue(value));
 	}, [value]);
 
 	const handleChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
 			const rawValue = e.target.value;
-
-			// Remove tudo que não é número
 			const numbers = rawValue.replace(/\D/g, "");
 
 			if (numbers === "") {
-				setDisplayValue("0.00");
+				setDisplayValue(formatCurrencyValue(0));
 				onChange(0);
 				return;
 			}
 
-			// Converte para número (centavos)
 			const numericValue = Number.parseInt(numbers, 10) / 100;
-
-			// Formata para exibição
-			setDisplayValue(formatCurrency(numericValue));
-
-			// Passa o valor numérico para o form
+			setDisplayValue(formatCurrencyValue(numericValue));
 			onChange(numericValue);
 		},
 		[onChange],
@@ -66,11 +55,7 @@ export function CurrencyInput({
 				"w-full bg-transparent text-[24px] font-normal outline-none",
 				textColor,
 			)}
-			placeholder="0.00"
+			placeholder="R$ 0,00"
 		/>
 	);
-}
-
-function formatCurrency(value: number): string {
-	return value.toFixed(2);
 }

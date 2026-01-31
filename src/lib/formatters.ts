@@ -1,8 +1,16 @@
 export function formatCurrency(valueInCents: number): string {
+	return formatBRL(valueInCents / 100);
+}
+
+export function formatCurrencyValue(value: number): string {
+	return formatBRL(value);
+}
+
+function formatBRL(value: number): string {
 	return new Intl.NumberFormat("pt-BR", {
-		minimumFractionDigits: 2,
-		maximumFractionDigits: 2,
-	}).format(valueInCents / 100);
+		style: "currency",
+		currency: "BRL",
+	}).format(value);
 }
 
 export function toCents(value: number): number {
