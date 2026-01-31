@@ -42,7 +42,7 @@ export function TransactionItem({
 				)}
 				<span
 					className={cn(
-						"text-lg font-medium",
+						"text-base font-normal",
 						isIncome ? "text-income" : "text-outcome",
 					)}
 				>
