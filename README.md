@@ -133,6 +133,17 @@ Esta decisao:
 - Deixa claro ao usuario que nenhuma alteracao foi feita
 - Mantem o botao habilitado assim que qualquer alteracao e detectada
 
+### Paginacao com Ellipsis Dinamico
+
+Quando ha muitas paginas, exibir todos os numeros ocuparia muito espaco e prejudicaria a usabilidade. Foi implementada uma logica que mostra apenas as paginas relevantes com ellipsis (...) para indicar paginas ocultas:
+
+![Paginacao com Ellipsis](public/pagination-with-split.png)
+
+A logica se adapta dinamicamente:
+- Paginas 1-2: mostra `1 2 3 ... ultima`
+- Paginas intermediarias: mostra `1 ... anterior atual proxima ... ultima`
+- Ultimas paginas: mostra `1 ... antepenultima penultima ultima`
+
 ## Estrutura do Banco de Dados
 
 ```json
