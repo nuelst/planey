@@ -6,5 +6,6 @@ export {
 	useSoftDeleteTransaction,
 } from "./use-delete-transaction";
 export { useTransaction } from "./use-transaction";
+export { useTransactionMutation } from "./use-transaction-mutation";
 export { useTransactions } from "./use-transactions";
 export { useUpdateTransaction } from "./use-update-transaction";

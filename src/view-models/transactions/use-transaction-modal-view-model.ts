@@ -1,13 +1,9 @@
-import { useNavigate, useSearch } from "@tanstack/react-router";
-
-interface ModalSearchParams {
-	modal?: "create" | "edit";
-	transactionId?: string;
-}
+import { useSearchParamsNavigation } from "../../hooks";
+import type { SearchParams } from "../../lib/search-params";
 
 export function useTransactionModalViewModel() {
-	const navigate = useNavigate();
-	const search = useSearch({ strict: false }) as ModalSearchParams;
+	const { search, updateSearch, removeSearchParams } =
+		useSearchParamsNavigation<SearchParams>();
 
 	const isCreateModalOpen = search.modal === "create";
 	const isEditModalOpen = search.modal === "edit" && !!search.transactionId;
@@ -15,25 +11,15 @@ export function useTransactionModalViewModel() {
 	const editingTransactionId = search.transactionId;
 
 	const openCreateModal = () => {
-		navigate({
-			to: ".",
-			search: { ...search, modal: "create" },
-		});
+		updateSearch({ modal: "create", transactionId: undefined });
 	};
 
 	const openEditModal = (transactionId: string) => {
-		navigate({
-			to: ".",
-			search: { ...search, modal: "edit", transactionId },
-		});
+		updateSearch({ modal: "edit", transactionId });
 	};
 
 	const closeModal = () => {
-		const { modal: _, transactionId: __, ...rest } = search;
-		navigate({
-			to: ".",
-			search: rest,
-		});
+		removeSearchParams("modal", "transactionId");
 	};
 
 	return {

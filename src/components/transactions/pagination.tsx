@@ -5,14 +5,13 @@ import {
 } from "@radix-ui/react-icons";
 import * as Select from "@radix-ui/react-select";
 import { cn } from "../../lib/cn";
+import { PAGE_SIZE_OPTIONS } from "../../lib/constants";
 import type { TransactionFiltersViewModel } from "../../view-models/transactions";
 
 interface PaginationProps {
 	filters: TransactionFiltersViewModel;
 	totalPages: number;
 }
-
-const PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
 
 export function Pagination({ filters, totalPages }: PaginationProps) {
 	const { currentPage, perPage, setPage, setPerPage } = filters;
@@ -21,7 +20,7 @@ export function Pagination({ filters, totalPages }: PaginationProps) {
 
 	return (
 		<div className="flex items-center justify-between mt-[6px]">
-			{/* Select de quantidade por página - Esquerda */}
+			{/* qtd/página  */}
 			<Select.Root
 				value={String(perPage)}
 				onValueChange={(value) => setPerPage(Number(value))}
@@ -54,7 +53,7 @@ export function Pagination({ filters, totalPages }: PaginationProps) {
 				</Select.Portal>
 			</Select.Root>
 
-			{/* Paginação - Direita */}
+			{/* paginação */}
 			<div className="flex items-center gap-[10px]">
 				<button
 					type="button"

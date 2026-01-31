@@ -1,48 +1,26 @@
-import { useNavigate, useSearch } from "@tanstack/react-router";
+import { useSearchParamsNavigation } from "../../hooks";
+import { DEFAULT_PAGE, DEFAULT_PER_PAGE } from "../../lib/constants";
+import type { SearchParams } from "../../lib/search-params";
 import type { TransactionType } from "../../types/transaction";
 
-interface FiltersSearchParams {
-	type?: TransactionType | "deleted";
-	page?: number;
-	perPage?: number;
-}
-
-const DEFAULT_PER_PAGE = 10;
-
 export function useTransactionFiltersViewModel() {
-	const navigate = useNavigate();
-	const search = useSearch({ strict: false }) as FiltersSearchParams;
+	const { search, updateSearch, clearSearch } =
+		useSearchParamsNavigation<SearchParams>();
 
 	const currentType = search.type;
-	const currentPage = search.page ?? 1;
+	const currentPage = search.page ?? DEFAULT_PAGE;
 	const perPage = search.perPage ?? DEFAULT_PER_PAGE;
 
 	const setType = (type?: TransactionType | "deleted") => {
-		navigate({
-			to: ".",
-			search: { ...search, type, page: 1 },
-		});
+		updateSearch({ type, page: DEFAULT_PAGE });
 	};
 
 	const setPage = (page: number) => {
-		navigate({
-			to: ".",
-			search: { ...search, page },
-		});
+		updateSearch({ page });
 	};
 
 	const setPerPage = (newPerPage: number) => {
-		navigate({
-			to: ".",
-			search: { ...search, perPage: newPerPage, page: 1 },
-		});
-	};
-
-	const clearFilters = () => {
-		navigate({
-			to: ".",
-			search: {},
-		});
+		updateSearch({ perPage: newPerPage, page: DEFAULT_PAGE });
 	};
 
 	const filters = {
@@ -66,7 +44,7 @@ export function useTransactionFiltersViewModel() {
 		setType,
 		setPage,
 		setPerPage,
-		clearFilters,
+		clearFilters: clearSearch,
 		showAll: () => setType(undefined),
 		showIncome: () => setType("income"),
 		showOutcome: () => setType("outcome"),

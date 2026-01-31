@@ -10,6 +10,10 @@ const buttonVariants = cva(
 					"bg-brand text-brand-text border border-brand-border hover:bg-brand-hover rounded-[42px]",
 				outline:
 					"bg-dialog-bg text-text-primary border border-dialog-border hover:bg-surface-hover rounded-full data-[state=active]:bg-active-bg data-[state=active]:border-active-border data-[state=active]:text-active-text",
+				filter:
+					"bg-dialog-bg text-text-primary border border-dialog-border hover:bg-surface-hover rounded-[42px]",
+				"filter-active":
+					"bg-active-bg text-active-text border border-active-border rounded-[42px]",
 				ghost:
 					"bg-transparent text-text-primary hover:bg-surface-hover rounded-[8px]",
 				destructive:

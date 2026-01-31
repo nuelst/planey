@@ -4,8 +4,8 @@ import {
 	TrashIcon,
 	UploadIcon,
 } from "@radix-ui/react-icons";
-import { cn } from "../../lib/cn";
 import type { TransactionFiltersViewModel } from "../../view-models/transactions";
+import { Button } from "../ui/button";
 
 interface FilterButtonsProps {
 	filters: TransactionFiltersViewModel;
@@ -21,52 +21,40 @@ export function FilterButtons({ filters }: FilterButtonsProps) {
 		},
 		{
 			label: "Entradas",
-			icon: UploadIcon,
+			icon: DownloadIcon,
 			isActive: filters.isShowingIncome,
 			onClick: filters.showIncome,
 		},
 		{
 			label: "Saídas",
-			icon: DownloadIcon,
+			icon: UploadIcon,
 			isActive: filters.isShowingOutcome,
 			onClick: filters.showOutcome,
 		},
 	];
 
-	const buttonClasses = (isActive: boolean) =>
-		cn(
-			"inline-flex items-center gap-2 py-2 px-[14px] text-sm font-medium rounded-[42px] border transition-colors cursor-pointer",
-			isActive
-				? "bg-active-bg text-active-text border-active-border"
-				: "bg-dialog-bg text-text-primary border-dialog-border hover:bg-surface-hover",
-		);
-
 	return (
 		<div className="flex items-center justify-between">
-			{/* Grupo principal: Todos, Entradas, Saídas - gap 12px */}
 			<div className="flex items-center gap-3">
 				{mainButtons.map((button) => (
-					<button
+					<Button
 						key={button.label}
-						type="button"
+						variant={button.isActive ? "filter-active" : "filter"}
 						onClick={button.onClick}
-						className={buttonClasses(button.isActive)}
 					>
 						<button.icon className="h-4 w-4" />
 						{button.label}
-					</button>
+					</Button>
 				))}
 			</div>
 
-			{/* Excluídos - separado à direita */}
-			<button
-				type="button"
+			<Button
+				variant={filters.isShowingDeleted ? "filter-active" : "filter"}
 				onClick={filters.showDeleted}
-				className={buttonClasses(filters.isShowingDeleted)}
 			>
 				<TrashIcon className="h-4 w-4" />
 				Excluídos
-			</button>
+			</Button>
 		</div>
 	);
 }
