@@ -8,6 +8,8 @@ import type {
 export async function listTransactions(
 	filters?: TransactionFilters,
 ): Promise<PaginatedResponse<Transaction>> {
+	const isDeleted = filters?.type === "deleted";
+
 	const { data } = await httpClient.get<PaginatedResponse<Transaction>>(
 		"/transactions",
 		{
@@ -15,9 +17,8 @@ export async function listTransactions(
 				_page: filters?.page,
 				_per_page: filters?.perPage,
 				_sort: "-createdAt",
-				type: filters?.type !== "deleted" ? filters?.type : undefined,
-				deletedAt: filters?.type === "deleted" ? undefined : "null",
-				deletedAt_ne: filters?.type === "deleted" ? "null" : undefined,
+				type: !isDeleted ? filters?.type : undefined,
+				...(isDeleted ? { deletedAt_ne: "null" } : { deletedAt: "null" }),
 			},
 		},
 	);
