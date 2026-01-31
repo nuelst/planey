@@ -29,12 +29,12 @@ function App() {
 		onSuccess: () => {
 			modal.closeModal();
 			if (modal.isEditModalOpen) {
-				toast.success("Valor de atualizado", {
-					description: "Já pode visualizar na lista",
+				toast("🎉 Valor de atualizado", {
+					description: "Já pode visualizar na lista.",
 				});
 			} else {
-				toast.success("Valor de entrada adicionado", {
-					description: "Já pode visualizar na lista",
+				toast("🎉 Valor de entrada adicionado", {
+					description: "Já pode visualizar na lista.",
 				});
 			}
 		},
@@ -43,8 +43,8 @@ function App() {
 	const handleRestore = (id: string) => {
 		restoreMutation.mutate(id, {
 			onSuccess: () => {
-				toast.success("Valor restaurado", {
-					description: "Já pode visualizar na lista",
+				toast("🎉 Valor restaurado", {
+					description: "Já pode visualizar na lista.",
 				});
 			},
 		});
@@ -52,10 +52,10 @@ function App() {
 
 	return (
 		<main className="min-h-screen bg-background">
-			<div className="mx-auto max-w-3xl px-4">
+			<div className="mx-auto max-w-[552px] px-4">
 				<Header onNewTransaction={modal.openCreateModal} />
 
-				<div className="space-y-6">
+				<div className="mt-[60px] space-y-5">
 					<FilterButtons filters={filters} />
 
 					<TransactionList
@@ -64,11 +64,12 @@ function App() {
 						onRestore={handleRestore}
 					/>
 
-					<Pagination
-						filters={filters}
-						totalPages={transactions.pagination.totalPages}
-						totalItems={transactions.pagination.totalItems}
-					/>
+					{transactions.pagination.totalItems > 0 && (
+						<Pagination
+							filters={filters}
+							totalPages={transactions.pagination.totalPages}
+						/>
+					)}
 				</div>
 			</div>
 

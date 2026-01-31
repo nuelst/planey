@@ -2,24 +2,29 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 const buttonVariants = cva(
-	"inline-flex items-center justify-center gap-2 font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed",
+	"inline-flex items-center justify-center gap-2 font-medium text-sm transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed",
 	{
 		variants: {
 			variant: {
 				brand:
-					"bg-brand text-brand-text border border-brand-border hover:bg-brand-hover",
+					"bg-brand text-brand-text border border-brand-border hover:bg-brand-hover rounded-[42px]",
 				outline:
-					"bg-surface text-text-primary border border-border hover:border-border-hover hover:bg-surface-hover",
-				ghost: "bg-transparent text-text-primary hover:bg-surface-hover",
+					"bg-dialog-bg text-text-primary border border-dialog-border hover:bg-surface-hover rounded-full data-[state=active]:bg-active-bg data-[state=active]:border-active-border data-[state=active]:text-active-text",
+				ghost:
+					"bg-transparent text-text-primary hover:bg-surface-hover rounded-[8px]",
 				destructive:
-					"bg-destructive-bg text-outcome border border-destructive-border hover:bg-surface-hover",
-				icon: "bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-hover",
+					"bg-destructive-bg text-outcome border border-destructive-border hover:bg-surface-hover rounded-[8px]",
+				"icon-destructive":
+					"bg-destructive-bg text-outcome border border-destructive-bg hover:opacity-80 rounded-[8px]",
+				icon: "bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-hover rounded-[8px]",
+				"icon-number":
+					"bg-dialog-bg text-text-primary border border-dialog-border hover:bg-surface-hover rounded-[8px]",
 			},
 			size: {
-				sm: "h-8 px-3 text-sm rounded-md",
-				md: "h-10 px-4 text-base rounded-md",
-				lg: "h-12 px-6 text-lg rounded-md",
-				icon: "h-10 w-10 rounded-md",
+				sm: "py-1.5 px-3",
+				md: "py-2 px-3.5",
+				lg: "py-2.5 px-4",
+				icon: "p-2",
 			},
 		},
 		defaultVariants: {

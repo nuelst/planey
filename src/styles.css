@@ -2,16 +2,29 @@
 
 @theme {
 	/* Colors - Background */
-	--color-background: #121212;
+	--color-background: #0a0a0a;
 	--color-surface: #1c1c1c;
 	--color-surface-hover: #252525;
-	--color-surface-active: #2a2a2a;
+	--color-surface-active: #404040;
+
+	/* Colors - Dialog */
+	--color-dialog-bg: #171717;
+	--color-dialog-border: #262626;
+
+	/* Colors - Toggle */
+	--color-toggle-bg: #262626;
+	--color-toggle-active: #404040;
 
 	/* Colors - Brand */
-	--color-brand: #d8f651;
-	--color-brand-hover: #e5ff6b;
-	--color-brand-border: #cfd011;
-	--color-brand-text: #1f1f1f;
+	--color-brand: #c0e952;
+	--color-brand-hover: #d4f76a;
+	--color-brand-border: #1c2011;
+	--color-brand-text: #171717;
+
+	/* Colors - Active State (Button outline active) */
+	--color-active-bg: #13150e;
+	--color-active-border: #1c2011;
+	--color-active-text: #c0e952;
 
 	/* Colors - Semantic */
 	--color-income: #00d47e;
@@ -20,11 +33,11 @@
 
 	/* Colors - Text */
 	--color-text-primary: #fafafa;
-	--color-text-secondary: #a0a0a0;
+	--color-text-secondary: #737373;
 	--color-text-muted: #6b6b6b;
 
 	/* Colors - Border */
-	--color-border: #2e2928;
+	--color-border: #262626;
 	--color-border-hover: #3e3e58;
 	--color-border-destructive: #2b1927;
 
@@ -44,6 +57,8 @@
 	--radius-sm: 4px;
 	--radius-md: 8px;
 	--radius-lg: 12px;
+	--radius-xl: 16px;
+	--radius-2xl: 19px;
 	--radius-full: 9999px;
 
 	/* Font */

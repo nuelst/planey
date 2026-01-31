@@ -8,8 +8,7 @@ export const transactionSchema = z.object({
 		.number({
 			error: "O valor deve ser um número válido",
 		})
-		.positive("O valor deve ser positivo")
-		.min(1, "O valor deve ser maior que zero"),
+		.positive("O valor precisa ser diferente de 0.00"),
 });
 
 export type TransactionFormData = z.infer<typeof transactionSchema>;

@@ -5,19 +5,21 @@ interface CurrencyInputProps {
 	value: number;
 	onChange: (value: number) => void;
 	hasError?: boolean;
+	variant?: "income" | "outcome";
 }
 
 export function CurrencyInput({
 	value,
 	onChange,
 	hasError,
+	variant = "income",
 }: CurrencyInputProps) {
 	const [displayValue, setDisplayValue] = useState("");
 
 	// Formata o valor inicial
 	useEffect(() => {
 		if (value === 0) {
-			setDisplayValue("0,00");
+			setDisplayValue("0.00");
 		} else {
 			setDisplayValue(formatCurrency(value));
 		}
@@ -31,7 +33,7 @@ export function CurrencyInput({
 			const numbers = rawValue.replace(/\D/g, "");
 
 			if (numbers === "") {
-				setDisplayValue("0,00");
+				setDisplayValue("0.00");
 				onChange(0);
 				return;
 			}
@@ -48,6 +50,12 @@ export function CurrencyInput({
 		[onChange],
 	);
 
+	const textColor = hasError
+		? "text-error"
+		: variant === "outcome"
+			? "text-outcome"
+			: "text-text-primary";
+
 	return (
 		<input
 			type="text"
@@ -55,17 +63,14 @@ export function CurrencyInput({
 			value={displayValue}
 			onChange={handleChange}
 			className={cn(
-				"w-full bg-transparent text-4xl font-medium outline-none",
-				hasError ? "text-outcome" : "text-text-primary",
+				"w-full bg-transparent text-[24px] font-normal outline-none",
+				textColor,
 			)}
-			placeholder="0,00"
+			placeholder="0.00"
 		/>
 	);
 }
 
 function formatCurrency(value: number): string {
-	return value.toLocaleString("pt-BR", {
-		minimumFractionDigits: 2,
-		maximumFractionDigits: 2,
-	});
+	return value.toFixed(2);
 }

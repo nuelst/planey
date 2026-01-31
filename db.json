@@ -4,25 +4,25 @@
       "id": "tx_001",
       "type": "income",
       "amount": 125000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T00:12:58.294Z",
       "createdAt": "2026-01-28T12:00:00.000Z",
-      "updatedAt": "2026-01-28T12:00:00.000Z"
+      "updatedAt": "2026-01-31T00:12:58.294Z"
     },
     {
       "id": "tx_002",
       "type": "outcome",
       "amount": 32000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T00:34:02.592Z",
       "createdAt": "2026-01-29T10:00:00.000Z",
-      "updatedAt": "2026-01-29T10:00:00.000Z"
+      "updatedAt": "2026-01-31T00:34:02.592Z"
     },
     {
       "id": "tx_003",
       "type": "income",
       "amount": 250000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:32:10.456Z",
       "createdAt": "2026-01-29T14:30:00.000Z",
-      "updatedAt": "2026-01-30T13:59:29.549Z"
+      "updatedAt": "2026-01-30T23:32:10.456Z"
     },
     {
       "id": "tx_004",
@@ -30,7 +30,7 @@
       "amount": 15500,
       "deletedAt": null,
       "createdAt": "2026-01-29T16:00:00.000Z",
-      "updatedAt": "2026-01-29T16:00:00.000Z"
+      "updatedAt": "2026-01-31T01:04:18.435Z"
     },
     {
       "id": "tx_005",
@@ -44,81 +44,105 @@
       "id": "tx_006",
       "type": "income",
       "amount": 450000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T00:34:03.770Z",
       "createdAt": "2026-01-26T08:30:00.000Z",
-      "updatedAt": "2026-01-26T08:30:00.000Z"
+      "updatedAt": "2026-01-31T00:34:03.770Z"
     },
     {
       "id": "tx_007",
       "type": "outcome",
       "amount": 78500,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:17:20.551Z",
       "createdAt": "2026-01-25T14:15:00.000Z",
-      "updatedAt": "2026-01-25T14:15:00.000Z"
+      "updatedAt": "2026-01-30T23:17:20.551Z"
     },
     {
       "id": "tx_008",
       "type": "income",
       "amount": 185000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:32:16.091Z",
       "createdAt": "2026-01-24T11:00:00.000Z",
-      "updatedAt": "2026-01-24T11:00:00.000Z"
+      "updatedAt": "2026-01-30T23:32:16.091Z"
     },
     {
       "id": "tx_009",
       "type": "outcome",
       "amount": 42000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:32:16.407Z",
       "createdAt": "2026-01-23T09:45:00.000Z",
-      "updatedAt": "2026-01-23T09:45:00.000Z"
+      "updatedAt": "2026-01-30T23:32:16.407Z"
     },
     {
       "id": "tx_010",
       "type": "income",
       "amount": 320000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:32:16.805Z",
       "createdAt": "2026-01-22T16:20:00.000Z",
-      "updatedAt": "2026-01-22T16:20:00.000Z"
+      "updatedAt": "2026-01-30T23:32:16.805Z"
     },
     {
       "id": "tx_011",
       "type": "outcome",
       "amount": 95000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:32:17.435Z",
       "createdAt": "2026-01-21T10:30:00.000Z",
-      "updatedAt": "2026-01-21T10:30:00.000Z"
+      "updatedAt": "2026-01-30T23:32:17.435Z"
     },
     {
       "id": "tx_012",
       "type": "income",
       "amount": 210000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:32:17.764Z",
       "createdAt": "2026-01-20T13:00:00.000Z",
-      "updatedAt": "2026-01-20T13:00:00.000Z"
+      "updatedAt": "2026-01-30T23:32:17.764Z"
     },
     {
       "id": "tx_013",
       "type": "outcome",
       "amount": 28500,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:32:18.222Z",
       "createdAt": "2026-01-19T15:45:00.000Z",
-      "updatedAt": "2026-01-19T15:45:00.000Z"
+      "updatedAt": "2026-01-30T23:32:18.222Z"
     },
     {
       "id": "tx_014",
       "type": "income",
       "amount": 175000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-30T23:32:18.735Z",
       "createdAt": "2026-01-18T08:00:00.000Z",
-      "updatedAt": "2026-01-18T08:00:00.000Z"
+      "updatedAt": "2026-01-30T23:32:18.736Z"
     },
     {
       "id": "tx_015",
       "type": "outcome",
       "amount": 63000,
-      "deletedAt": null,
+      "deletedAt": "2026-01-31T01:00:04.659Z",
       "createdAt": "2026-01-17T12:30:00.000Z",
-      "updatedAt": "2026-01-17T12:30:00.000Z"
+      "updatedAt": "2026-01-31T01:00:04.660Z"
+    },
+    {
+      "id": "tx_1769817034069",
+      "type": "outcome",
+      "amount": 22324454,
+      "deletedAt": null,
+      "createdAt": "2026-01-30T23:50:34.069Z",
+      "updatedAt": "2026-01-31T00:58:59.694Z"
+    },
+    {
+      "id": "tx_1769818754929",
+      "type": "income",
+      "amount": 12345,
+      "deletedAt": "2026-01-31T00:34:06.390Z",
+      "createdAt": "2026-01-31T00:19:14.929Z",
+      "updatedAt": "2026-01-31T00:34:06.390Z"
+    },
+    {
+      "id": "tx_1769819834520",
+      "type": "outcome",
+      "amount": 231211,
+      "deletedAt": "2026-01-31T00:51:35.964Z",
+      "createdAt": "2026-01-31T00:37:14.520Z",
+      "updatedAt": "2026-01-31T00:51:35.964Z"
     }
   ]
 }

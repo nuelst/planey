@@ -1,4 +1,4 @@
-import { ArrowDownIcon, ArrowUpIcon, TrashIcon } from "@radix-ui/react-icons";
+import { DownloadIcon, TrashIcon, UploadIcon } from "@radix-ui/react-icons";
 import { cn } from "../../lib/cn";
 import { Button } from "../ui/button";
 
@@ -26,8 +26,8 @@ export function TransactionItem({
 	return (
 		<div
 			className={cn(
-				"flex items-center justify-between w-full p-4 rounded-lg bg-surface border border-transparent transition-colors",
-				"hover:border-outcome/50 hover:bg-surface-hover",
+				"flex items-center justify-between w-full h-16 py-4 px-6 border-b border-dialog-border last:border-b-0 transition-colors",
+				"hover:bg-surface-hover",
 			)}
 		>
 			<button
@@ -36,9 +36,9 @@ export function TransactionItem({
 				onClick={() => onClick?.(id)}
 			>
 				{isIncome ? (
-					<ArrowDownIcon className="h-5 w-5 text-income" />
+					<UploadIcon className="h-5 w-5 text-income" />
 				) : (
-					<ArrowUpIcon className="h-5 w-5 text-outcome" />
+					<DownloadIcon className="h-5 w-5 text-outcome" />
 				)}
 				<span
 					className={cn(
@@ -56,7 +56,7 @@ export function TransactionItem({
 				</Button>
 			) : (
 				<Button
-					variant="destructive"
+					variant="icon-destructive"
 					size="icon"
 					onClick={() => onDelete?.(id)}
 					aria-label="Excluir transação"

@@ -1,72 +1,100 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
+import {
+	ChevronDownIcon,
+	ChevronLeftIcon,
+	ChevronRightIcon,
+} from "@radix-ui/react-icons";
+import * as Select from "@radix-ui/react-select";
 import { cn } from "../../lib/cn";
 import type { TransactionFiltersViewModel } from "../../view-models/transactions";
-import { Button } from "../ui/button";
 
 interface PaginationProps {
 	filters: TransactionFiltersViewModel;
 	totalPages: number;
-	totalItems: number;
 }
 
-export function Pagination({
-	filters,
-	totalPages,
-	totalItems,
-}: PaginationProps) {
-	const { currentPage, setPage } = filters;
+const PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
+
+export function Pagination({ filters, totalPages }: PaginationProps) {
+	const { currentPage, perPage, setPage, setPerPage } = filters;
 
 	const pages = generatePageNumbers(currentPage, totalPages);
-	const showPageButtons = totalPages > 1;
 
 	return (
-		<div className="flex items-center justify-between">
-			<p className="text-sm text-text-secondary">
-				{totalItems} {totalItems === 1 ? "item" : "itens"}
-			</p>
+		<div className="flex items-center justify-between mt-[6px]">
+			{/* Select de quantidade por página - Esquerda */}
+			<Select.Root
+				value={String(perPage)}
+				onValueChange={(value) => setPerPage(Number(value))}
+			>
+				<Select.Trigger className="inline-flex items-center gap-2 py-2 px-[14px] text-sm font-medium rounded-[8px] border border-dialog-border bg-dialog-bg text-text-primary hover:bg-surface-hover transition-colors cursor-pointer outline-none">
+					<Select.Value />
+					<Select.Icon>
+						<ChevronDownIcon className="h-4 w-4" />
+					</Select.Icon>
+				</Select.Trigger>
 
-			{showPageButtons && (
-				<div className="flex items-center gap-1">
-					<Button
-						variant="ghost"
-						size="icon"
-						onClick={() => setPage(currentPage - 1)}
-						disabled={currentPage <= 1}
-						aria-label="Página anterior"
+				<Select.Portal>
+					<Select.Content
+						className="overflow-hidden rounded-[8px] border border-dialog-border bg-dialog-bg shadow-lg"
+						position="popper"
+						sideOffset={4}
 					>
-						<ChevronLeftIcon className="h-4 w-4" />
-					</Button>
+						<Select.Viewport className="p-1">
+							{PAGE_SIZE_OPTIONS.map((size) => (
+								<Select.Item
+									key={size}
+									value={String(size)}
+									className="flex items-center px-3 py-2 text-sm text-text-primary rounded-[6px] cursor-pointer outline-none hover:bg-surface-hover data-[highlighted]:bg-surface-hover"
+								>
+									<Select.ItemText>{size}</Select.ItemText>
+								</Select.Item>
+							))}
+						</Select.Viewport>
+					</Select.Content>
+				</Select.Portal>
+			</Select.Root>
 
-					{pages.map((page, index) => (
-						<button
-							key={page === "..." ? `ellipsis-${index}` : `page-${page}`}
-							type="button"
-							disabled={page === "..."}
-							onClick={() => typeof page === "number" && setPage(page)}
-							className={cn(
-								"h-10 min-w-10 px-3 text-sm font-medium rounded-md transition-colors",
-								page === currentPage
-									? "bg-brand text-brand-text"
-									: page === "..."
-										? "text-text-muted cursor-default"
-										: "text-text-secondary hover:text-text-primary hover:bg-surface-hover",
-							)}
-						>
-							{page}
-						</button>
-					))}
+			{/* Paginação - Direita */}
+			<div className="flex items-center gap-[10px]">
+				<button
+					type="button"
+					onClick={() => setPage(currentPage - 1)}
+					disabled={currentPage <= 1}
+					aria-label="Página anterior"
+					className="flex items-center justify-center h-8 w-8 rounded-[8px] border border-dialog-border bg-dialog-bg text-text-primary hover:bg-surface-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+				>
+					<ChevronLeftIcon className="h-4 w-4" />
+				</button>
 
-					<Button
-						variant="ghost"
-						size="icon"
-						onClick={() => setPage(currentPage + 1)}
-						disabled={currentPage >= totalPages}
-						aria-label="Próxima página"
+				{pages.map((page, index) => (
+					<button
+						key={page === "..." ? `ellipsis-${index}` : `page-${page}`}
+						type="button"
+						disabled={page === "..."}
+						onClick={() => typeof page === "number" && setPage(page)}
+						className={cn(
+							"flex items-center justify-center h-8 min-w-8 px-2 text-sm font-medium rounded-[8px] border transition-colors",
+							page === currentPage
+								? "bg-active-bg text-active-text border-active-border"
+								: page === "..."
+									? "text-text-muted cursor-default border-transparent"
+									: "bg-dialog-bg text-text-primary border-dialog-border hover:bg-surface-hover",
+						)}
 					>
-						<ChevronRightIcon className="h-4 w-4" />
-					</Button>
-				</div>
-			)}
+						{page}
+					</button>
+				))}
+
+				<button
+					type="button"
+					onClick={() => setPage(currentPage + 1)}
+					disabled={currentPage >= totalPages}
+					aria-label="Próxima página"
+					className="flex items-center justify-center h-8 w-8 rounded-[8px] border border-dialog-border bg-dialog-bg text-text-primary hover:bg-surface-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+				>
+					<ChevronRightIcon className="h-4 w-4" />
+				</button>
+			</div>
 		</div>
 	);
 }
