@@ -55,7 +55,6 @@ export function TransactionModal({
 						"focus:outline-none",
 					)}
 				>
-					{/* Close button - top right */}
 					<Dialog.Close asChild>
 						<button
 							type="button"
@@ -91,9 +90,7 @@ export function TransactionModal({
 							)}
 						</div>
 
-						{/* Toggle + Button row */}
 						<div className="flex items-center justify-between">
-							{/* Toggle Entrada/Saída */}
 							<Controller
 								name="type"
 								control={form.control}
@@ -115,7 +112,6 @@ export function TransactionModal({
 								)}
 							/>
 
-							{/* Botão de submit */}
 							<Button
 								type="submit"
 								variant="brand"

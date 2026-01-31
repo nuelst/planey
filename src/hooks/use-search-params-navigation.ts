@@ -3,6 +3,7 @@ import { useCallback } from "react";
 
 export function useSearchParamsNavigation<T extends Record<string, unknown>>() {
 	const navigate = useNavigate();
+	// @ts-expect-error - strict: false is needed for generic hook usage across routes
 	const search = useSearch({ strict: false }) as T;
 
 	const updateSearch = useCallback(
@@ -43,4 +44,3 @@ export function useSearchParamsNavigation<T extends Record<string, unknown>>() {
 		clearSearch,
 	};
 }
-

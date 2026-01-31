@@ -20,7 +20,7 @@ export function Pagination({ filters, totalPages }: PaginationProps) {
 
 	return (
 		<div className="flex items-center justify-between mt-[6px]">
-			{/* Select de quantidade por página - Esquerda */}
+			{/* qtd/página  */}
 			<Select.Root
 				value={String(perPage)}
 				onValueChange={(value) => setPerPage(Number(value))}
@@ -53,7 +53,7 @@ export function Pagination({ filters, totalPages }: PaginationProps) {
 				</Select.Portal>
 			</Select.Root>
 
-			{/* Paginação - Direita */}
+			{/* paginação */}
 			<div className="flex items-center gap-[10px]">
 				<button
 					type="button"
