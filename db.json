@@ -140,9 +140,113 @@
       "id": "tx_1769819834520",
       "type": "outcome",
       "amount": 231211,
-      "deletedAt": "2026-01-31T00:51:35.964Z",
+      "deletedAt": "2026-01-31T01:46:21.870Z",
       "createdAt": "2026-01-31T00:37:14.520Z",
-      "updatedAt": "2026-01-31T00:51:35.964Z"
+      "updatedAt": "2026-01-31T01:46:21.870Z"
+    },
+    {
+      "id": "tx_1769822863437",
+      "type": "outcome",
+      "amount": 5000,
+      "deletedAt": "2026-01-31T01:46:50.252Z",
+      "createdAt": "2026-01-31T01:27:43.436Z",
+      "updatedAt": "2026-01-31T01:46:50.252Z"
+    },
+    {
+      "id": "tx_1769822864001",
+      "type": "income",
+      "amount": 10000,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:27:44.001Z",
+      "updatedAt": "2026-01-31T01:27:44.001Z"
+    },
+    {
+      "id": "tx_1769822905431",
+      "type": "income",
+      "amount": 10000,
+      "deletedAt": "2026-01-31T01:49:46.377Z",
+      "createdAt": "2026-01-31T01:28:25.430Z",
+      "updatedAt": "2026-01-31T01:49:46.378Z"
+    },
+    {
+      "id": "tx_1769822905999",
+      "type": "outcome",
+      "amount": 5000,
+      "deletedAt": "2026-01-31T01:41:39.429Z",
+      "createdAt": "2026-01-31T01:28:25.999Z",
+      "updatedAt": "2026-01-31T01:41:39.429Z"
+    },
+    {
+      "id": "tx_1769824187688",
+      "type": "income",
+      "amount": 10000,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:49:47.688Z",
+      "updatedAt": "2026-01-31T01:49:47.688Z"
+    },
+    {
+      "id": "tx_1769824187748",
+      "type": "outcome",
+      "amount": 5000,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:49:47.748Z",
+      "updatedAt": "2026-01-31T01:49:47.748Z"
+    },
+    {
+      "id": "tx_1769824257447",
+      "type": "income",
+      "amount": 10000,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:50:57.446Z",
+      "updatedAt": "2026-01-31T01:50:57.446Z"
+    },
+    {
+      "id": "tx_1769824258490",
+      "type": "outcome",
+      "amount": 5000,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:50:58.489Z",
+      "updatedAt": "2026-01-31T01:50:58.489Z"
+    },
+    {
+      "id": "tx_1769824543822",
+      "type": "income",
+      "amount": 20345465,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:55:43.822Z",
+      "updatedAt": "2026-01-31T01:55:43.822Z"
+    },
+    {
+      "id": "tx_1769824548590",
+      "type": "income",
+      "amount": 234567,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:55:48.590Z",
+      "updatedAt": "2026-01-31T01:55:48.590Z"
+    },
+    {
+      "id": "tx_1769824552434",
+      "type": "income",
+      "amount": 2345678,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:55:52.434Z",
+      "updatedAt": "2026-01-31T01:55:52.434Z"
+    },
+    {
+      "id": "tx_1769824557607",
+      "type": "income",
+      "amount": 23456789,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:55:57.607Z",
+      "updatedAt": "2026-01-31T01:55:57.607Z"
+    },
+    {
+      "id": "tx_1769824566390",
+      "type": "income",
+      "amount": 2134567890,
+      "deletedAt": null,
+      "createdAt": "2026-01-31T01:56:06.390Z",
+      "updatedAt": "2026-01-31T01:56:06.390Z"
     }
   ]
 }

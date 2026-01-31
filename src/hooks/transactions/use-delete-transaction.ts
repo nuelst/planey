@@ -11,8 +11,14 @@ export function useSoftDeleteTransaction() {
 
 	return useMutation({
 		mutationFn: (id: string) => softDeleteTransaction(id),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: transactionKeys.lists() });
+		onSuccess: (_, deletedId) => {
+			queryClient.invalidateQueries({
+				queryKey: transactionKeys.detail(deletedId),
+			});
+			queryClient.invalidateQueries({
+				queryKey: transactionKeys.lists(),
+				refetchType: "all",
+			});
 		},
 	});
 }
@@ -22,8 +28,14 @@ export function useRestoreTransaction() {
 
 	return useMutation({
 		mutationFn: (id: string) => restoreTransaction(id),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: transactionKeys.lists() });
+		onSuccess: (_, restoredId) => {
+			queryClient.invalidateQueries({
+				queryKey: transactionKeys.detail(restoredId),
+			});
+			queryClient.invalidateQueries({
+				queryKey: transactionKeys.lists(),
+				refetchType: "all",
+			});
 		},
 	});
 }

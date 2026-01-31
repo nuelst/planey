@@ -43,7 +43,6 @@ export function useTransactionFormViewModel({
 				amount: fromCents(transaction.amount),
 			});
 		} else if (!isEditing) {
-			// Modo criação: reseta para valores padrão
 			form.reset({
 				type: "income",
 				amount: 0,
@@ -81,7 +80,6 @@ export function useTransactionFormViewModel({
 	};
 
 	return {
-		// Form
 		form,
 		handleSubmit,
 		resetForm,
